@@ -1,0 +1,6 @@
+# Fichiers créés automatiquement par Python
+__pycache__/
+*.pyc
+
+# Partie sauvegardée (propre à chaque joueur)
+sauvegarde.json
