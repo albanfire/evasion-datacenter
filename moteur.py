@@ -44,6 +44,9 @@ class Jeu:
             self.aide()
         elif verbe == "quitter":
             self.quitter()
+        elif verbe == "aller":
+            self.aller(complement)
+
         # TODO issue « Se déplacer »         : aller <direction>
         # TODO issue « Ramasser des objets »  : prendre <objet>, inventaire
         # TODO issue « Utiliser un objet »    : utiliser <objet>
@@ -70,12 +73,21 @@ class Jeu:
         if salle["objets"]:
             print("Tu vois :", ", ".join(salle["objets"]))
         print("Sorties :", ", ".join(salle["sorties"]))
+    
+    def aller(self, direction):
+        salle = self.salle()
+        if direction not in salle["sorties"]:
+            print("Tu ne peux pas aller par là.")
+            return
+        self.salle_actuelle = salle["sorties"][direction]
+        self.regarder()
 
     def aide(self):
         print("Commandes disponibles :")
         print("  regarder           décrit la salle")
         print("  aide               affiche cette aide")
         print("  quitter            quitte le jeu")
+        print("  aller <direction>  : se déplacer (nord, sud, est, ouest)")
         # TODO : ajoute ici chaque nouvelle commande que tu crées.
 
     def quitter(self):
