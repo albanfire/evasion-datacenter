@@ -46,6 +46,10 @@ class Jeu:
             self.quitter()
         elif verbe == "aller":
             self.aller(complement)
+        elif verbe == "prendre":
+            self.prendre(complement)
+        elif verbe == "inventaire":
+            self.afficher_inventaire()
 
         # TODO issue « Se déplacer »         : aller <direction>
         # TODO issue « Ramasser des objets »  : prendre <objet>, inventaire
@@ -81,13 +85,30 @@ class Jeu:
             return
         self.salle_actuelle = salle["sorties"][direction]
         self.regarder()
+  
+    def prendre(self, objet):
+        objets = self.salle()["objets"]
+        if objet in objets:
+            objets.remove(objet)
+            self.inventaire.append(objet)
+            print(f"Tu prends : {objet}.")
+        else:
+            print("Cet objet n'est pas ici.")
 
+    def afficher_inventaire(self):
+        if self.inventaire:
+            print("Tu as :", ", ".join(self.inventaire))
+        else:
+            print("Ton inventaire est vide.")
+    
     def aide(self):
         print("Commandes disponibles :")
         print("  regarder           décrit la salle")
         print("  aide               affiche cette aide")
         print("  quitter            quitte le jeu")
         print("  aller <direction>  : se déplacer (nord, sud, est, ouest)")
+        print("  prendre <objet>    ramasse un objet")
+        print("  inventaire         affiche ce que tu portes")
         # TODO : ajoute ici chaque nouvelle commande que tu crées.
 
     def quitter(self):
