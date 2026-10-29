@@ -11,7 +11,7 @@
     "couloir": {
       "nom": "Couloir",
       "description": "Un long couloir éclairé par les lumières de secours. Au bout, une porte vitrée affiche « Bureau de l'administrateur ».",
-      "sorties": { "sud": "salle_serveurs", "est": "bureau_admin","nord": "sas" },
+      "sorties": { "sud": "salle_serveurs", "est": "bureau_admin","nord": "sas",  "ouest": "salle_pause"  },
       "verrous": { "nord": "badge" },
       "objets": []
     },
@@ -21,6 +21,12 @@
       "sorties": { "sud": "couloir", "nord": "parking"},
       "enigme": "digicode",
       "objets": []
+    },
+    "salle_pause": {
+      "nom": "Salle de pause",
+      "description": "Une petite salle avec une machine à café éteinte et des chaises renversées. Un post-it jaune est collé sur le frigo.",
+      "sorties": { "est": "couloir" },
+      "objets": ["post-it"]
 
     },
     "bureau_admin": {
