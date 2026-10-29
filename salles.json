@@ -4,7 +4,7 @@
     "salle_serveurs": {
       "nom": "Salle des serveurs",
       "description": "Le ronronnement des ventilateurs remplit la pièce. Des voyants clignotent dans la pénombre. La porte par laquelle tu es entré s'est refermée derrière toi.",
-      "sorties": { "nord": "couloir" },
+      "sorties": { "nord": "couloir" , "est": "salle_maintenance" },
       "enigme": "adresse_ip",
       "objets": ["lampe torche"]
     },
@@ -14,6 +14,13 @@
       "sorties": { "sud": "salle_serveurs", "est": "bureau_admin","nord": "sas",  "ouest": "salle_pause"  },
       "verrous": { "nord": "badge" },
       "objets": []
+    },
+    "salle_maintenance": {
+      "nom": "Salle de maintenance",
+      "description": "Une salle sypathique avec des outils et des pièces détachées. Un ordinateur est allumé sur un bureau.",
+      "sorties": { "ouest": "salle_serveurs" },
+      "verrous": { "ouest": "lampe torche" },
+      "objets": ["pain"]
     },
     "sas": {
       "nom": "Sas de sécurité",
