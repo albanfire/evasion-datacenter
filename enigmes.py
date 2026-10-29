@@ -28,7 +28,22 @@ def enigme_digicode():
         "Le digicode affiche : « 0100 0010 0111 ». Quel est le code à 3 chiffres ?",
         "427",
     )
+def enigme_mot_de_passe():
+    """Un écran de connexion demande le mot de passe de l'administrateur."""
+    return poser_enigme(
+        "Un écran demande le mot de passe admin. Indice : ce sont les 3 lettres "
+        "du système qui traduit un nom de site en adresse IP.",
+        "dns",
+    )
 
+
+def enigme_adresse_ip():
+    """Une étiquette collée sur un serveur donne une adresse incomplète."""
+    return poser_enigme(
+        "Une étiquette indique : « 127.0.0.? ». C'est l'adresse qu'un ordinateur "
+        "utilise pour se parler à lui-même. Quel nombre manque ?",
+        "1",
+    )
 
 # TODO issue « Les énigmes » : crée au moins deux autres énigmes.
 # Idées : un mot de passe à deviner grâce à un indice,

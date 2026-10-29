@@ -8,6 +8,13 @@ import json
 import time
 
 DUREE_MAX = 15*60  # en secondes
+from enigmes import enigme_digicode, enigme_mot_de_passe, enigme_adresse_ip
+
+ENIGMES = {
+    "digicode": enigme_digicode,
+    "mot_de_passe": enigme_mot_de_passe,
+    "adresse_ip": enigme_adresse_ip,
+}
 
 class Jeu:
     def __init__(self, fichier_salles):
@@ -97,7 +104,13 @@ class Jeu:
         if direction in salle.get("verrous", {}):
             print("La porte est verrouillée.")
             return
-        self.salle_actuelle = salle["sorties"][direction]
+        destination = salle["sorties"][direction]
+        nom_enigme = self.salles[destination].get("enigme")
+        if nom_enigme:
+            if not ENIGMES[nom_enigme]():
+                return  # énigme ratée : on reste dans la salle actuelle
+            del self.salles[destination]["enigme"]  # résolue pour de bon
+        self.salle_actuelle = destination
         self.regarder()
   
     def prendre(self, objet):
@@ -137,6 +150,7 @@ class Jeu:
         print("  inventaire         affiche ce que tu portes")
         print("  utiliser <objet>   utilise un objet de ton inventaire")
         print("  temps              affiche le temps restant")
+        print("  (certaines salles cachent une énigme : réponds pour avancer)")
         # TODO : ajoute ici chaque nouvelle commande que tu crées.
 
     def quitter(self):
