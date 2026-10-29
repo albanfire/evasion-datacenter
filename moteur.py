@@ -139,7 +139,16 @@ class Jeu:
             del self.salles[destination]["enigme"]  # résolue pour de bon
         self.salle_actuelle = destination
         self.regarder()
-  
+        self.salle_actuelle = destination
+        self.regarder()
+        if self.salle().get("fin"):
+            self.victoire()
+
+    def victoire(self):
+        duree = int(time.time() - self.debut)
+        print(f"\nBRAVO ! Tu t'es échappé en {duree // 60} min {duree % 60} s.")
+        self.en_cours = False
+        
     def prendre(self, objet):
         objets = self.salle()["objets"]
         if objet in objets:
