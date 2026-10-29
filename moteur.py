@@ -68,6 +68,10 @@ class Jeu:
             self.utiliser(complement)
         elif verbe == "temps":
             self.temps()
+        elif verbe == "sauver":
+            self.sauver()
+        elif verbe == "charger":
+            self.charger()
 
         # TODO issue « Se déplacer »         : aller <direction>
         # TODO issue « Ramasser des objets »  : prendre <objet>, inventaire
@@ -86,6 +90,29 @@ class Jeu:
         print("Tu t'es endormi pendant une intervention de nuit.")
         print("Le datacenter est verrouillé. Trouve la sortie !")
         print("Tape « aide » pour voir les commandes.")
+        self.regarder()
+
+    def sauver(self):
+        partie = {
+            "salle_actuelle": self.salle_actuelle,
+            "inventaire": self.inventaire,
+            "salles": self.salles,
+        }
+        with open("sauvegarde.json", "w", encoding="utf-8") as fichier:
+            json.dump(partie, fichier, ensure_ascii=False, indent=2)
+        print("Partie sauvegardée.")
+
+    def charger(self):
+        try:
+            with open("sauvegarde.json", encoding="utf-8") as fichier:
+                partie = json.load(fichier)
+        except FileNotFoundError:
+            print("Aucune sauvegarde trouvée.")
+            return
+        self.salle_actuelle = partie["salle_actuelle"]
+        self.inventaire = partie["inventaire"]
+        self.salles = partie["salles"]
+        print("Partie chargée.")
         self.regarder()
 
     def regarder(self):
@@ -151,6 +178,8 @@ class Jeu:
         print("  utiliser <objet>   utilise un objet de ton inventaire")
         print("  temps              affiche le temps restant")
         print("  (certaines salles cachent une énigme : réponds pour avancer)")
+        print("  sauver             sauvegarde la partie")
+        print("  charger            recharge la dernière sauvegarde")
         # TODO : ajoute ici chaque nouvelle commande que tu crées.
 
     def quitter(self):
