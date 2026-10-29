@@ -18,6 +18,7 @@
       "nom": "Sas de sécurité",
       "description": "Un petit sas blindé. Un panneau lumineux clignote près de la sortie.",
       "sorties": { "sud": "couloir" },
+      "enigme": "digicode",
       "objets": []
 
     },
