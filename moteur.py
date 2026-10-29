@@ -50,6 +50,8 @@ class Jeu:
             self.prendre(complement)
         elif verbe == "inventaire":
             self.afficher_inventaire()
+        elif verbe == "utiliser":
+            self.utiliser(complement)
 
         # TODO issue « Se déplacer »         : aller <direction>
         # TODO issue « Ramasser des objets »  : prendre <objet>, inventaire
@@ -83,6 +85,9 @@ class Jeu:
         if direction not in salle["sorties"]:
             print("Tu ne peux pas aller par là.")
             return
+        if direction in salle.get("verrous", {}):
+            print("La porte est verrouillée.")
+            return
         self.salle_actuelle = salle["sorties"][direction]
         self.regarder()
   
@@ -95,6 +100,18 @@ class Jeu:
         else:
             print("Cet objet n'est pas ici.")
 
+    def utiliser(self, objet):
+        if objet not in self.inventaire:
+            print("Tu n'as pas cet objet.")
+            return
+        verrous = self.salle().get("verrous", {})
+        for direction, objet_requis in list(verrous.items()):
+            if objet_requis == objet:
+                del verrous[direction]
+                print(f"La porte {direction} s'ouvre !")
+                return
+        print("Ça ne sert à rien ici.")
+    
     def afficher_inventaire(self):
         if self.inventaire:
             print("Tu as :", ", ".join(self.inventaire))
@@ -109,6 +126,7 @@ class Jeu:
         print("  aller <direction>  : se déplacer (nord, sud, est, ouest)")
         print("  prendre <objet>    ramasse un objet")
         print("  inventaire         affiche ce que tu portes")
+        print("  utiliser <objet>   utilise un objet de ton inventaire")
         # TODO : ajoute ici chaque nouvelle commande que tu crées.
 
     def quitter(self):

@@ -10,8 +10,16 @@
     "couloir": {
       "nom": "Couloir",
       "description": "Un long couloir éclairé par les lumières de secours. Au bout, une porte vitrée affiche « Bureau de l'administrateur ».",
-      "sorties": { "sud": "salle_serveurs", "est": "bureau_admin" },
+      "sorties": { "sud": "salle_serveurs", "est": "bureau_admin","nord": "sas" },
+      "verrous": { "nord": "badge" },
       "objets": []
+    },
+    "sas": {
+      "nom": "Sas de sécurité",
+      "description": "Un petit sas blindé. Un panneau lumineux clignote près de la sortie.",
+      "sorties": { "sud": "couloir" },
+      "objets": []
+
     },
     "bureau_admin": {
       "nom": "Bureau de l'administrateur",
