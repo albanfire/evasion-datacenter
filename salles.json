@@ -18,7 +18,7 @@
     "sas": {
       "nom": "Sas de sécurité",
       "description": "Un petit sas blindé. Un panneau lumineux clignote près de la sortie.",
-      "sorties": { "sud": "couloir" },
+      "sorties": { "sud": "couloir", "nord": "parking"},
       "enigme": "digicode",
       "objets": []
 
@@ -29,6 +29,13 @@
       "sorties": { "ouest": "couloir" },
       "enigme": "mot_de_passe",
       "objets": ["badge", "post-it"]
+    },
+  "parking": {
+  "nom": "Parking",
+  "description": "L'air frais de la nuit ! Tu es enfin dehors, devant le datacenter.",
+  "sorties": { "sud": "sas" },
+  "fin": true,
+  "objets": []
     }
   }
 }
