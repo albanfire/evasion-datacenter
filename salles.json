@@ -5,6 +5,7 @@
       "nom": "Salle des serveurs",
       "description": "Le ronronnement des ventilateurs remplit la pièce. Des voyants clignotent dans la pénombre. La porte par laquelle tu es entré s'est refermée derrière toi.",
       "sorties": { "nord": "couloir" },
+      "enigme": "adresse_ip",
       "objets": ["lampe torche"]
     },
     "couloir": {
@@ -26,6 +27,7 @@
       "nom": "Bureau de l'administrateur",
       "description": "Un bureau encombré de câbles et de tasses de café. Un écran est resté allumé.",
       "sorties": { "ouest": "couloir" },
+      "enigme": "mot_de_passe",
       "objets": ["badge", "post-it"]
     }
   }

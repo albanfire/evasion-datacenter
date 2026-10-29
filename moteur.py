@@ -5,9 +5,14 @@ et à une branche.
 """
 
 import json
-from enigmes import enigme_digicode
 
-ENIGMES = {"digicode": enigme_digicode}
+from enigmes import enigme_digicode, enigme_mot_de_passe, enigme_adresse_ip
+
+ENIGMES = {
+    "digicode": enigme_digicode,
+    "mot_de_passe": enigme_mot_de_passe,
+    "adresse_ip": enigme_adresse_ip,
+}
 
 class Jeu:
     def __init__(self, fichier_salles):
