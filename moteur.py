@@ -5,7 +5,9 @@ et à une branche.
 """
 
 import json
+import time
 
+DUREE_MAX = 15*60  # en secondes
 from enigmes import enigme_digicode, enigme_mot_de_passe, enigme_adresse_ip
 
 ENIGMES = {
@@ -24,7 +26,7 @@ class Jeu:
         self.salle_actuelle = donnees["depart"]
         self.inventaire = []
         self.en_cours = True
-
+        self.debut = time.time()
         # TODO issue « Compte à rebours » : retenir l'heure de début.
 
     def salle(self):
@@ -39,6 +41,11 @@ class Jeu:
         if not commande:
             return
 
+        restant = DUREE_MAX - (time.time() - self.debut)
+        if restant <= 0:
+            print("L'alarme se déclenche… Les vigiles arrivent. Perdu !")
+            self.en_cours = False
+            return
         # TODO issue « Compte à rebours » : vérifier le temps restant ici.
 
         mots = commande.split(maxsplit=1)
@@ -59,6 +66,8 @@ class Jeu:
             self.afficher_inventaire()
         elif verbe == "utiliser":
             self.utiliser(complement)
+        elif verbe == "temps":
+            self.temps()
 
         # TODO issue « Se déplacer »         : aller <direction>
         # TODO issue « Ramasser des objets »  : prendre <objet>, inventaire
@@ -140,12 +149,16 @@ class Jeu:
         print("  prendre <objet>    ramasse un objet")
         print("  inventaire         affiche ce que tu portes")
         print("  utiliser <objet>   utilise un objet de ton inventaire")
+        print("  temps              affiche le temps restant")
         print("  (certaines salles cachent une énigme : réponds pour avancer)")
         # TODO : ajoute ici chaque nouvelle commande que tu crées.
 
     def quitter(self):
         print("À bientôt !")
         self.en_cours = False
+    def temps(self):
+        restant = max(0, int(DUREE_MAX - (time.time() - self.debut)))
+        print(f"Temps restant : {restant // 60} min {restant % 60} s.")
 
     # ---------------------------------------------------------
     # Commandes à écrire
