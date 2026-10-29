@@ -29,10 +29,16 @@
       "objets": ["post-it"]
 
     },
+    "archives": {
+      "nom": "Salle des archives",
+      "description": "Des rangées d'étagères métalliques remplies de vieux disques durs. L'air sent la poussière.",
+      "sorties": { "sud": "bureau_admin" },
+      "objets": ["cle-usb"]
+    },
     "bureau_admin": {
       "nom": "Bureau de l'administrateur",
       "description": "Un bureau encombré de câbles et de tasses de café. Un écran est resté allumé.",
-      "sorties": { "ouest": "couloir" },
+      "sorties": { "ouest": "couloir" , "nord": "archives" },
       "enigme": "mot_de_passe",
       "objets": ["badge", "post-it"]
     },
