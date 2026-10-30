@@ -19,7 +19,14 @@ def poser_enigme(question, bonne_reponse, essais=3):
         print("Ce n'est pas ça.")
     print("Plus d'essais… Réfléchis et reviens plus tard.")
     return False
-
+    
+def enigme_onduleur():
+    """Un boîtier clignote dans le local technique."""
+    return poser_enigme(
+        "Un boîtier clignote : « UPS ». Cet appareil alimente les serveurs "
+        "en cas de coupure de courant. Comment s'appelle-t-il en français ?",
+        "onduleur",
+    )
 
 # Exemple d'énigme toute prête, à brancher dans le jeu :
 def enigme_digicode():
