@@ -8,10 +8,11 @@ import json
 import time
 
 DUREE_MAX = 15*60  # en secondes
-from enigmes import enigme_digicode, enigme_mot_de_passe, enigme_adresse_ip
+from enigmes import enigme_digicode, enigme_onduleur, enigme_mot_de_passe, enigme_adresse_ip
 
 ENIGMES = {
     "digicode": enigme_digicode,
+    "onduleur": enigme_onduleur,
     "mot_de_passe": enigme_mot_de_passe,
     "adresse_ip": enigme_adresse_ip,
 }
