@@ -20,6 +20,7 @@
       "description": "Une salle sypathique avec des outils et des pièces détachées. Un ordinateur est allumé sur un bureau.",
       "sorties": { "ouest": "salle_serveurs" },
       "verrous": { "ouest": "clé" },
+      "enigme": "onduleur",
       "objets": ["clé"]
     },
     "sas": {
