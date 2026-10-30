@@ -34,6 +34,7 @@
       "nom": "Salle de pause",
       "description": "Une petite salle avec une machine à café éteinte et des chaises renversées. Un post-it jaune est collé sur le frigo.",
       "sorties": { "est": "couloir" },
+      "enigme": "cable",
       "objets": ["post-it"]
 
     },

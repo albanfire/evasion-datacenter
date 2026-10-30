@@ -20,6 +20,13 @@ def poser_enigme(question, bonne_reponse, essais=3):
     print("Plus d'essais… Réfléchis et reviens plus tard.")
     return False
     
+def enigme_cable():
+    """Un panneau électrique demande de reconnecter le fil de terre."""
+    return poser_enigme(
+        "Dans une prise électrique, le fil de terre a deux couleurs. "
+        "Donne-les séparées par un espace, par exemple « rouge bleu ».",
+        "vert jaune",
+    )    
 def enigme_onduleur():
     """Un boîtier clignote dans le local technique."""
     return poser_enigme(
