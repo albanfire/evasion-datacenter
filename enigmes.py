@@ -21,42 +21,38 @@ def poser_enigme(question, bonne_reponse, essais=3):
     return False
     
 def enigme_cable():
-    """Un panneau électrique demande de reconnecter le fil de terre."""
+    """Paulin se réveille. Il est complètement bourré et ne sait plus quelle fille il a embrassée hier soir."""
     return poser_enigme(
-        "Dans une prise électrique, le fil de terre a deux couleurs. "
-        "Donne-les séparées par un espace, par exemple « rouge bleu ».",
-        "vert jaune",
+        "Paulin se réveille. Il est complètement bourré et ne sait plus quelle fille il a embrassée hier soir. Quel fille a t'il embrassée hier soir ? - Perrine, Emma, Laurine, ou personne ? ",
+        "Personne",
     )    
 def enigme_onduleur():
-    """Un boîtier clignote dans le local technique."""
+    """Thomas te demande comment s'appelle la daronne la plus fraiche."""
     return poser_enigme(
-        "Un boîtier clignote : « UPS ». Cet appareil alimente les serveurs "
-        "en cas de coupure de courant. Comment s'appelle-t-il en français ?",
-        "onduleur",
+        "Thomas te demande comment s'appelle la daronne la plus fraiche. Tu as le choix entre vannessa, Lynda, Nathalie ou Flavie.",
+        "Nathalie",
     )
 
 # Exemple d'énigme toute prête, à brancher dans le jeu :
 def enigme_digicode():
     """Le code est écrit en binaire sur le post-it du bureau."""
     return poser_enigme(
-        "Le digicode affiche : « 0100 0010 0111 ». Quel est le code à 3 chiffres ?",
+        "Le code est écrit en binaire sur le post-it du bureau. Le digicode affiche : « 0100 0010 0111 ». Quel est le code à 3 chiffres ?",
         "427",
     )
 def enigme_mot_de_passe():
-    """Un écran de connexion demande le mot de passe de l'administrateur."""
+    """Aurelien te demande si son outfit lui va bien"""
     return poser_enigme(
-        "Un écran demande le mot de passe admin. Indice : ce sont les 3 lettres "
-        "du système qui traduit un nom de site en adresse IP.",
-        "dns",
+        "Aurelien te demande si son outfit lui va bien. Répond oui ou non.",
+        "non",
     )
 
 
 def enigme_adresse_ip():
-    """Une étiquette collée sur un serveur donne une adresse incomplète."""
+    """Quel est le bodycount de Lucas ?"""
     return poser_enigme(
-        "Une étiquette indique : « 127.0.0.? ». C'est l'adresse qu'un ordinateur "
-        "utilise pour se parler à lui-même. Quel nombre manque ?",
-        "1",
+        "Quel est le bodycount de Lucas ? cette question est très difficile. cela demande de la concentration.",
+        "0",
     )
 
 # TODO issue « Les énigmes » : crée au moins deux autres énigmes.

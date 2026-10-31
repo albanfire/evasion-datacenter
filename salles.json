@@ -1,62 +1,63 @@
 {
-  "depart": "salle_serveurs",
+  "depart": "Chambre",
   "salles": {
-    "salle_serveurs": {
-      "nom": "Salle des serveurs",
-      "description": "Le ronronnement des ventilateurs remplit la pièce. Des voyants clignotent dans la pénombre. La porte par laquelle tu es entré s'est refermée derrière toi.",
-      "sorties": { "nord": "couloir" , "est": "salle_maintenance" },
+    "Chambre": {
+      "nom": "Chambre d'Armel",
+      "description": "L'odeur de la chambre est insoutenable. tu vois la chemise retournée plein de mayo d'Armel. Il faut que tu la prennes et la mettes dans ton bac à linge ! Tu peux aller à l'est direction le bureau ou au nord vers le couloir ",
+      "sorties": { "nord": "couloir" , "est": "Bureau" },
       "enigme": "adresse_ip",
-      "objets": ["lampe torche"]
+      "objets": ["chemise"]
     },
     "couloir": {
       "nom": "Couloir",
-      "description": "Un long couloir éclairé par les lumières de secours. Au bout, une porte vitrée affiche « Bureau de l'administrateur ».",
-      "sorties": { "sud": "salle_serveurs", "est": "bureau_admin","nord": "sas",  "ouest": "salle_pause"  },
-      "verrous": { "nord": "badge" },
-      "objets": []
-    },
-    "salle_maintenance": {
-      "nom": "Salle de maintenance",
-      "description": "Une salle sypathique avec des outils et des pièces détachées. Un ordinateur est allumé sur un bureau.",
-      "sorties": { "ouest": "salle_serveurs" },
-      "verrous": { "ouest": "clé" },
-      "enigme": "onduleur",
-      "objets": ["clé"]
-    },
-    "sas": {
-      "nom": "Sas de sécurité",
-      "description": "Un petit sas blindé. Un panneau lumineux clignote près de la sortie.",
-      "sorties": { "sud": "couloir", "nord": "parking"},
-      "enigme": "digicode",
-      "objets": []
-    },
-    "salle_pause": {
-      "nom": "Salle de pause",
-      "description": "Une petite salle avec une machine à café éteinte et des chaises renversées. Un post-it jaune est collé sur le frigo.",
-      "sorties": { "est": "couloir" },
+      "description": "Un long couloir sombre. Il y a Paulin complètement bourré qui dors devant la porte nord. Trouve un moyen de le réveiller ! tu peux cependant aller à l'ouest vers la salle de bain ou a l'est vers Le garage",
+      "sorties": { "sud": "Chambre", "est": "Garage", "nord": "Salon",  "ouest": "salle_bain"  },
+      "verrous": { "nord": "short jaune" },
       "enigme": "cable",
-      "objets": ["post-it"]
+      "objets": []
+    },
+    "Bureau": {
+      "nom": "Bureau",
+      "description": "C'est le bureau des parents, tout est propre a l'intérieur. tu vois la cousine de Lucas qui pleure. Elle a besoin de ton aide ! Sur le bureau tu vois le gros joint de Thomas, jette le vite par la fenêtre avant de sortir !",
+      "sorties": { "ouest": "Chambre" },
+      "verrous": {"ouest" :"joint" },
+      "enigme": "digicode",
+      "objets": ["joint"]
+    },
+    "Salon": {
+      "nom": "Le Grand Salon",
+      "description": "Tout le monde est dans le salon, mais personne veut t'aider car ils sont en train de regarder des brainrots sur Instagram. Tu trouves la chaussette de Paulin sur le canapé. Tu vois aussi le journal raciste de Flavien. Range tout ça ! ",
+      "sorties": { "sud": "couloir", "nord": "Jardin"},
+      "enigme": "mot_de_passe",
+      "objets": ["chaussette", "journal"]
+    },
+    "salle_bain": {
+      "nom": "Salle de bain",
+      "description": "Tu vois sur le lavabo le rouge à lèvre de la cousine de Lucas. rend le lui vite ! Derrière le rideau de douche, tu vois Thomas incoscient dans la baignoire. Sors le vite de là ! Tu vois aussi une éponge.",
+      "sorties": { "est": "couloir" },
+      "enigme": "onduleur",
+      "objets": ["thomas", "rouge à lèvre", "éponge"]
 
     },
-    "archives": {
-      "nom": "Salle des archives",
-      "description": "Des rangées d'étagères métalliques remplies de vieux disques durs. L'air sent la poussière.",
-      "sorties": { "sud": "bureau_admin" },
-      "objets": ["cle-usb"]
+    "Sous_sol": {
+      "nom": "Sous-sol",
+      "description": "L'endroit fais peur. Tu vois le short jaune de paulin sur l'étagère. Range le vite ! Il y a aussi la jaeger de Mathias. Range le vite ! Tu peux aller au sud vers le garage.",
+      "sorties": { "sud": "Garage" },
+      "objets": ["short jaune", "jaeger"]
     },
-    "bureau_admin": {
-      "nom": "Bureau de l'administrateur",
-      "description": "Un bureau encombré de câbles et de tasses de café. Un écran est resté allumé.",
-      "sorties": { "ouest": "couloir" , "nord": "archives" },
-      "enigme": "mot_de_passe",
-      "objets": ["badge", "post-it"]
+    "Garage": {
+      "nom": "Garage",
+      "description": "Tu vois dans le garage la voiture de papa avec ecrit avec de la mayo sur le capot, CACA. nettoie tout ca avec l'éponge ! Tu vois la culotte de la meuf de nathan. Ca pue très fort ! range la vite ! Tu peux aller au nord vers le sous sol. ",
+      "sorties": { "ouest": "couloir" , "nord": "Sous_sol" },
+      "enigme": "adresse_ip",
+      "objets": ["culotte"]
     },
-  "parking": {
-  "nom": "Parking",
-  "description": "L'air frais de la nuit ! Tu es enfin dehors, devant le datacenter.",
-  "sorties": { "sud": "sas" },
+  "Jardin": {
+  "nom": "Jardin",
+  "description": "L'air frais te fais du bien après cette soirée. Tu vois sur la table le reste de space cake. Mange le vite avant que maman arrive ! ",
+  "sorties": { "sud": "Salon" },
   "fin": true,
-  "objets": []
+  "objets": ["space cake"]
     }
   }
 }

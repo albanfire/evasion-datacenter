@@ -87,10 +87,10 @@ class Jeu:
     # ---------------------------------------------------------
     def afficher_intro(self):
         print("=" * 50)
-        print("  ÉVASION DU DATACENTER")
+        print("  MAMAN ARRIVE !")
         print("=" * 50)
-        print("Tu t'es endormi pendant une intervention de nuit.")
-        print("Le datacenter est verrouillé. Trouve la sortie !")
+        print("Tu viens de réaliser une grosse soirée chez toi. Maman arrive dans 15 minutes et tu n'as pas encore rangé ton bazar. ")
+        print("Il faut ranger tes affaires au plus vite ! Explore les différentes pièces de la maison, ramasse les objets et range les dans ta chambre au plus vite !")
         print("Tape « aide » pour voir les commandes.")
         self.regarder()
 
@@ -148,7 +148,7 @@ class Jeu:
 
     def victoire(self):
         duree = int(time.time() - self.debut)
-        print(f"\nBRAVO ! Tu t'es échappé en {duree // 60} min {duree % 60} s.")
+        print(f"\nBRAVO ! Tu as réussi à tout ranger en {duree // 60} min {duree % 60} s. Maman est fière de toi !")
         self.en_cours = False
         
     def prendre(self, objet):
